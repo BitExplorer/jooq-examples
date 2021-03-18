@@ -27,6 +27,9 @@ public class PageUtil {
     String sql = query.getSQL();
     System.out.println(sql);
     List<O> into = using.fetch(sql, bindValues.toArray()).map(mapper);
+    System.out.println(
+        create.fetch("select sql_calc_found_rows * from user where id < 14 limit 7 offset 3;"));
+    System.out.println(create.fetch("select found_rows();"));
     System.out.println(into);
     PageResult<O> pageResult = new PageResult<>();
     pageResult.setData(into);
