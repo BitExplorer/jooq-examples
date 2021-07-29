@@ -10,6 +10,7 @@ dependencies {
   implementation("org.jooq:jooq-codegen")
 
   runtimeOnly("org.mariadb.jdbc:mariadb-java-client")
+  runtimeOnly('org.postgresql:postgresql:42.2.23')
 
   testImplementation("io.projectreactor:reactor-test")
 }

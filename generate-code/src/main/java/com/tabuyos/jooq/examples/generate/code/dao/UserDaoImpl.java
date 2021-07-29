@@ -10,9 +10,7 @@ import org.jooq.SelectConditionStep;
 import org.jooq.SelectWhereStep;
 import org.springframework.stereotype.Repository;
 
-/**
- * @author tabuyos
- */
+
 @Repository
 public class UserDaoImpl extends UserDao {
 

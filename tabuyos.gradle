@@ -11,6 +11,8 @@ buildscript {
     classpath 'org.jooq:jooq-meta:3.14.8'
     classpath 'org.jooq:jooq:3.14.8'
     classpath 'org.mariadb.jdbc:mariadb-java-client:2.7.2'
+    classpath 'org.postgresql:postgresql:42.2.23'
+
   }
 }
 
@@ -21,14 +23,16 @@ GenerationTool.generate(
   new Configuration()
     .withJdbc(
       new Jdbc()
-        .withDriver("org.mariadb.jdbc.Driver")
+        .withDriver("org.postgresql.Driver")
         .withUrl(
-          "jdbc:mariadb://localhost:3306/tabuyos?useUnicode=true&characterEncoding=utf8")
-        .withUser("tabuyos")
-        .withPassword("tabuyos"))
+          "jdbc:postgresql://localhost:5432/finance_test_db")
+        .withUser("henninb")
+        .withPassword("monday1"))
     .withGenerator(
       new Generator()
-        .withDatabase(new Database().withInputSchema("tabuyos").withIncludes(".*"))
+        .withDatabase(new Database()
+                .withInputSchema("public")
+                .withIncludes(".*"))
         .withGenerate(new Generate().withPojos(true).withDaos(true))
         .withTarget(
           new Target()

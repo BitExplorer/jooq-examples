@@ -15,17 +15,17 @@ public class GenerateCodeConfig {
             .withOnError(OnError.LOG)
             .withJdbc(
                 new Jdbc()
-                    .withDriver("org.mariadb.jdbc.Driver")
+                    .withDriver("org.postgresql.Driver")
                     .withUrl(
-                        "jdbc:mariadb://localhost:3306/tabuyos?useUnicode=true&characterEncoding=utf8")
-                    .withUser("tabuyos")
-                    .withPassword("tabuyos"))
+                        "jdbc:postgresql://localhost:5432/finance_test_db")
+                    .withUser("henninb")
+                    .withPassword("monday1"))
             .withGenerator(
                 new Generator()
                     .withDatabase(
                         new Database()
-                            .withName("org.jooq.meta.mariadb.MariaDBDatabase")
-                            .withInputSchema("tabuyos")
+                            .withName("org.jooq.meta.postgres.PostgresDatabase")
+                            .withInputSchema("public")
                             .withIncludes(".*"))
                     .withGenerate(
                         new Generate()

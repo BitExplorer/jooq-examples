@@ -7,8 +7,8 @@ spring:
   application:
     name: generate-code
   datasource:
-    url: jdbc:mariadb://localhost:3306/tabuyos?useUnicode=true&characterEncoding=utf8
-    username: tabuyos
-    password: tabuyos
+    url: jdbc:postgresql://localhost:5432/finance_test_db
+    username: henninb
+    password: monday1
     initialization-mode: always
     sql-script-encoding: utf-8

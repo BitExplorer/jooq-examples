@@ -42,7 +42,7 @@ public class Tabuyos extends SchemaImpl {
      * No further instances allowed
      */
     private Tabuyos() {
-        super("tabuyos", null);
+        super("public", null);
     }
 
 
