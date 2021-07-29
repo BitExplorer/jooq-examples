@@ -1,4 +1,4 @@
-package com.tabuyos.jooq.examples.generate.code.config;
+package example.generate.code.config;
 
 import org.jooq.codegen.GenerationTool;
 import org.jooq.meta.jaxb.*;

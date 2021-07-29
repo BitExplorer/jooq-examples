@@ -1,6 +1,6 @@
-package com.tabuyos.jooq.examples.generate.code.controller;
+package example.generate.code.controller;
 
-import com.tabuyos.jooq.examples.generate.code.dao.UserDaoImpl;
+import example.generate.code.dao.UserDaoImpl;
 import org.springframework.stereotype.Component;
 
 @Component

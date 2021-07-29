@@ -1,13 +1,12 @@
-package com.tabuyos.jooq.examples.generate.code.dao;
+package example.generate.code.dao;
 
-import static com.tabuyos.jooq.examples.generate.code.model.Tables.*;
-import com.tabuyos.jooq.examples.generate.code.model.tables.daos.UserDao;
-import com.tabuyos.jooq.examples.generate.code.model.tables.pojos.User;
-import com.tabuyos.jooq.examples.generate.code.model.tables.records.UserRecord;
+import static example.generate.code.model.Tables.*;
+import example.generate.code.model.tables.daos.UserDao;
+import example.generate.code.model.tables.pojos.User;
+import example.generate.code.model.tables.records.UserRecord;
 import org.jooq.Configuration;
 import org.jooq.DSLContext;
 import org.jooq.SelectConditionStep;
-import org.jooq.SelectWhereStep;
 import org.springframework.stereotype.Repository;
 
 

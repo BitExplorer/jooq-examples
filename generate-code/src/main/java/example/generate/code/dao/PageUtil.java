@@ -1,4 +1,4 @@
-package com.tabuyos.jooq.examples.generate.code.dao;
+package example.generate.code.dao;
 
 import org.jooq.*;
 import org.jooq.impl.DSL;

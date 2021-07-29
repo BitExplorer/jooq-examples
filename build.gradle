@@ -4,10 +4,6 @@ version("0.1.0-SNAPSHOT")
 def projectVersion = version
 def groupId = group
 def junitJupiterVersion = "5.7.0"
-def hutoolVersion = "5.5.1"
-def mariadbVersion = "2.6.0"
-def mybatisSpringVersion = "2.1.4"
-def mybatisPlusVersion = "3.4.1"
 def springCloudVersion = "2020.0.1"
 def springBootVersion = "2.4.3"
 def removeParentSrc = true
@@ -29,10 +25,10 @@ allprojects {
 
   repositories {
     mavenLocal()
-    maven {
-      url "https://maven.aliyun.com/repository/public"
-      name "AliyunPublic"
-    }
+//    maven {
+//      url "https://maven.aliyun.com/repository/public"
+//      name "AliyunPublic"
+//    }
     mavenCentral()
   }
 }
@@ -81,8 +77,8 @@ subprojects {
   }
 
   java {
-    sourceCompatibility = JavaVersion.VERSION_1_8
-    targetCompatibility = JavaVersion.VERSION_1_8
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
   }
 
   tasks.withType(JavaCompile) {
