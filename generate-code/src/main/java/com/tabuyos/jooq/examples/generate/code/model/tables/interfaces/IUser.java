@@ -5,7 +5,7 @@ package com.tabuyos.jooq.examples.generate.code.model.tables.interfaces;
 
 
 import java.io.Serializable;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -23,69 +23,69 @@ import javax.persistence.UniqueConstraint;
 @Entity
 @Table(
     name = "user",
-    schema = "tabuyos",
+    schema = "public",
     uniqueConstraints = {
-        @UniqueConstraint(name = "KEY_user_PRIMARY", columnNames = { "id" })
+        @UniqueConstraint(name = "user_pkey", columnNames = { "id" })
     }
 )
 public interface IUser extends Serializable {
 
     /**
-     * Setter for <code>tabuyos.user.id</code>. user id
+     * Setter for <code>public.user.id</code>.
      */
-    public void setId(Integer value);
+    public void setId(Long value);
 
     /**
-     * Getter for <code>tabuyos.user.id</code>. user id
+     * Getter for <code>public.user.id</code>.
      */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false, precision = 10)
-    public Integer getId();
+    @Column(name = "id", nullable = false, precision = 64)
+    public Long getId();
 
     /**
-     * Setter for <code>tabuyos.user.name</code>. user name
+     * Setter for <code>public.user.name</code>.
      */
     public void setName(String value);
 
     /**
-     * Getter for <code>tabuyos.user.name</code>. user name
+     * Getter for <code>public.user.name</code>.
      */
-    @Column(name = "name", nullable = false, length = 20)
+    @Column(name = "name")
     public String getName();
 
     /**
-     * Setter for <code>tabuyos.user.age</code>. user age
+     * Setter for <code>public.user.age</code>.
      */
     public void setAge(Integer value);
 
     /**
-     * Getter for <code>tabuyos.user.age</code>. user age
+     * Getter for <code>public.user.age</code>.
      */
-    @Column(name = "age", precision = 10)
+    @Column(name = "age", precision = 32)
     public Integer getAge();
 
     /**
-     * Setter for <code>tabuyos.user.gender</code>. user gender
+     * Setter for <code>public.user.gender</code>.
      */
-    public void setGender(Integer value);
+    public void setGender(String value);
 
     /**
-     * Getter for <code>tabuyos.user.gender</code>. user gender
+     * Getter for <code>public.user.gender</code>.
      */
-    @Column(name = "gender", precision = 10)
-    public Integer getGender();
+    @Column(name = "gender")
+    public String getGender();
 
     /**
-     * Setter for <code>tabuyos.user.birthday</code>.
+     * Setter for <code>public.user.birthday</code>.
      */
-    public void setBirthday(LocalDateTime value);
+    public void setBirthday(LocalDate value);
 
     /**
-     * Getter for <code>tabuyos.user.birthday</code>.
+     * Getter for <code>public.user.birthday</code>.
      */
-    @Column(name = "birthday", nullable = false)
-    public LocalDateTime getBirthday();
+    @Column(name = "birthday")
+    public LocalDate getBirthday();
 
     // -------------------------------------------------------------------------
     // FROM and INTO

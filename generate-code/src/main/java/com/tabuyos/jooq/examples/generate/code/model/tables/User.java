@@ -5,10 +5,10 @@ package com.tabuyos.jooq.examples.generate.code.model.tables;
 
 
 import com.tabuyos.jooq.examples.generate.code.model.Keys;
-import com.tabuyos.jooq.examples.generate.code.model.Tabuyos;
+import com.tabuyos.jooq.examples.generate.code.model.Public;
 import com.tabuyos.jooq.examples.generate.code.model.tables.records.UserRecord;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.List;
 
@@ -34,10 +34,10 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class User extends TableImpl<UserRecord> {
 
-    private static final long serialVersionUID = 590393397;
+    private static final long serialVersionUID = -1638626319;
 
     /**
-     * The reference instance of <code>tabuyos.user</code>
+     * The reference instance of <code>public.user</code>
      */
     public static final User USER = new User();
 
@@ -50,29 +50,29 @@ public class User extends TableImpl<UserRecord> {
     }
 
     /**
-     * The column <code>tabuyos.user.id</code>. user id
+     * The column <code>public.user.id</code>.
      */
-    public final TableField<UserRecord, Integer> ID = createField(DSL.name("id"), SQLDataType.INTEGER.nullable(false).identity(true), this, "user id");
+    public final TableField<UserRecord, Long> ID = createField(DSL.name("id"), SQLDataType.BIGINT.nullable(false).identity(true), this, "");
 
     /**
-     * The column <code>tabuyos.user.name</code>. user name
+     * The column <code>public.user.name</code>.
      */
-    public final TableField<UserRecord, String> NAME = createField(DSL.name("name"), SQLDataType.VARCHAR(20).nullable(false), this, "user name");
+    public final TableField<UserRecord, String> NAME = createField(DSL.name("name"), SQLDataType.CLOB, this, "");
 
     /**
-     * The column <code>tabuyos.user.age</code>. user age
+     * The column <code>public.user.age</code>.
      */
-    public final TableField<UserRecord, Integer> AGE = createField(DSL.name("age"), SQLDataType.INTEGER.defaultValue(DSL.field("NULL", SQLDataType.INTEGER)), this, "user age");
+    public final TableField<UserRecord, Integer> AGE = createField(DSL.name("age"), SQLDataType.INTEGER, this, "");
 
     /**
-     * The column <code>tabuyos.user.gender</code>. user gender
+     * The column <code>public.user.gender</code>.
      */
-    public final TableField<UserRecord, Integer> GENDER = createField(DSL.name("gender"), SQLDataType.INTEGER.defaultValue(DSL.field("1", SQLDataType.INTEGER)), this, "user gender");
+    public final TableField<UserRecord, String> GENDER = createField(DSL.name("gender"), SQLDataType.CLOB, this, "");
 
     /**
-     * The column <code>tabuyos.user.birthday</code>.
+     * The column <code>public.user.birthday</code>.
      */
-    public final TableField<UserRecord, LocalDateTime> BIRTHDAY = createField(DSL.name("birthday"), SQLDataType.LOCALDATETIME(0).nullable(false).defaultValue(DSL.field("current_timestamp()", SQLDataType.LOCALDATETIME)), this, "");
+    public final TableField<UserRecord, LocalDate> BIRTHDAY = createField(DSL.name("birthday"), SQLDataType.LOCALDATE, this, "");
 
     private User(Name alias, Table<UserRecord> aliased) {
         this(alias, aliased, null);
@@ -83,21 +83,21 @@ public class User extends TableImpl<UserRecord> {
     }
 
     /**
-     * Create an aliased <code>tabuyos.user</code> table reference
+     * Create an aliased <code>public.user</code> table reference
      */
     public User(String alias) {
         this(DSL.name(alias), USER);
     }
 
     /**
-     * Create an aliased <code>tabuyos.user</code> table reference
+     * Create an aliased <code>public.user</code> table reference
      */
     public User(Name alias) {
         this(alias, USER);
     }
 
     /**
-     * Create a <code>tabuyos.user</code> table reference
+     * Create a <code>public.user</code> table reference
      */
     public User() {
         this(DSL.name("user"), null);
@@ -109,22 +109,22 @@ public class User extends TableImpl<UserRecord> {
 
     @Override
     public Schema getSchema() {
-        return Tabuyos.TABUYOS;
+        return Public.PUBLIC;
     }
 
     @Override
-    public Identity<UserRecord, Integer> getIdentity() {
-        return (Identity<UserRecord, Integer>) super.getIdentity();
+    public Identity<UserRecord, Long> getIdentity() {
+        return (Identity<UserRecord, Long>) super.getIdentity();
     }
 
     @Override
     public UniqueKey<UserRecord> getPrimaryKey() {
-        return Keys.KEY_USER_PRIMARY;
+        return Keys.USER_PKEY;
     }
 
     @Override
     public List<UniqueKey<UserRecord>> getKeys() {
-        return Arrays.<UniqueKey<UserRecord>>asList(Keys.KEY_USER_PRIMARY);
+        return Arrays.<UniqueKey<UserRecord>>asList(Keys.USER_PKEY);
     }
 
     @Override
@@ -158,7 +158,7 @@ public class User extends TableImpl<UserRecord> {
     // -------------------------------------------------------------------------
 
     @Override
-    public Row5<Integer, String, Integer, Integer, LocalDateTime> fieldsRow() {
+    public Row5<Long, String, Integer, String, LocalDate> fieldsRow() {
         return (Row5) super.fieldsRow();
     }
 }

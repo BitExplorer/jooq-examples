@@ -7,7 +7,7 @@ package com.tabuyos.jooq.examples.generate.code.model.tables.daos;
 import com.tabuyos.jooq.examples.generate.code.model.tables.User;
 import com.tabuyos.jooq.examples.generate.code.model.tables.records.UserRecord;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.List;
 
 import org.jooq.Configuration;
@@ -21,7 +21,7 @@ import org.springframework.stereotype.Repository;
  */
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 @Repository
-public class UserDao extends DAOImpl<UserRecord, com.tabuyos.jooq.examples.generate.code.model.tables.pojos.User, Integer> {
+public class UserDao extends DAOImpl<UserRecord, com.tabuyos.jooq.examples.generate.code.model.tables.pojos.User, Long> {
 
     /**
      * Create a new UserDao without any configuration
@@ -39,28 +39,28 @@ public class UserDao extends DAOImpl<UserRecord, com.tabuyos.jooq.examples.gener
     }
 
     @Override
-    public Integer getId(com.tabuyos.jooq.examples.generate.code.model.tables.pojos.User object) {
+    public Long getId(com.tabuyos.jooq.examples.generate.code.model.tables.pojos.User object) {
         return object.getId();
     }
 
     /**
      * Fetch records that have <code>id BETWEEN lowerInclusive AND upperInclusive</code>
      */
-    public List<com.tabuyos.jooq.examples.generate.code.model.tables.pojos.User> fetchRangeOfId(Integer lowerInclusive, Integer upperInclusive) {
+    public List<com.tabuyos.jooq.examples.generate.code.model.tables.pojos.User> fetchRangeOfId(Long lowerInclusive, Long upperInclusive) {
         return fetchRange(User.USER.ID, lowerInclusive, upperInclusive);
     }
 
     /**
      * Fetch records that have <code>id IN (values)</code>
      */
-    public List<com.tabuyos.jooq.examples.generate.code.model.tables.pojos.User> fetchById(Integer... values) {
+    public List<com.tabuyos.jooq.examples.generate.code.model.tables.pojos.User> fetchById(Long... values) {
         return fetch(User.USER.ID, values);
     }
 
     /**
      * Fetch a unique record that has <code>id = value</code>
      */
-    public com.tabuyos.jooq.examples.generate.code.model.tables.pojos.User fetchOneById(Integer value) {
+    public com.tabuyos.jooq.examples.generate.code.model.tables.pojos.User fetchOneById(Long value) {
         return fetchOne(User.USER.ID, value);
     }
 
@@ -95,28 +95,28 @@ public class UserDao extends DAOImpl<UserRecord, com.tabuyos.jooq.examples.gener
     /**
      * Fetch records that have <code>gender BETWEEN lowerInclusive AND upperInclusive</code>
      */
-    public List<com.tabuyos.jooq.examples.generate.code.model.tables.pojos.User> fetchRangeOfGender(Integer lowerInclusive, Integer upperInclusive) {
+    public List<com.tabuyos.jooq.examples.generate.code.model.tables.pojos.User> fetchRangeOfGender(String lowerInclusive, String upperInclusive) {
         return fetchRange(User.USER.GENDER, lowerInclusive, upperInclusive);
     }
 
     /**
      * Fetch records that have <code>gender IN (values)</code>
      */
-    public List<com.tabuyos.jooq.examples.generate.code.model.tables.pojos.User> fetchByGender(Integer... values) {
+    public List<com.tabuyos.jooq.examples.generate.code.model.tables.pojos.User> fetchByGender(String... values) {
         return fetch(User.USER.GENDER, values);
     }
 
     /**
      * Fetch records that have <code>birthday BETWEEN lowerInclusive AND upperInclusive</code>
      */
-    public List<com.tabuyos.jooq.examples.generate.code.model.tables.pojos.User> fetchRangeOfBirthday(LocalDateTime lowerInclusive, LocalDateTime upperInclusive) {
+    public List<com.tabuyos.jooq.examples.generate.code.model.tables.pojos.User> fetchRangeOfBirthday(LocalDate lowerInclusive, LocalDate upperInclusive) {
         return fetchRange(User.USER.BIRTHDAY, lowerInclusive, upperInclusive);
     }
 
     /**
      * Fetch records that have <code>birthday IN (values)</code>
      */
-    public List<com.tabuyos.jooq.examples.generate.code.model.tables.pojos.User> fetchByBirthday(LocalDateTime... values) {
+    public List<com.tabuyos.jooq.examples.generate.code.model.tables.pojos.User> fetchByBirthday(LocalDate... values) {
         return fetch(User.USER.BIRTHDAY, values);
     }
 }

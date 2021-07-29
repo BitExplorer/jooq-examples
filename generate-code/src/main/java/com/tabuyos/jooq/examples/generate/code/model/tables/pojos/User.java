@@ -6,7 +6,7 @@ package com.tabuyos.jooq.examples.generate.code.model.tables.pojos;
 
 import com.tabuyos.jooq.examples.generate.code.model.tables.interfaces.IUser;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -24,20 +24,20 @@ import javax.persistence.UniqueConstraint;
 @Entity
 @Table(
     name = "user",
-    schema = "tabuyos",
+    schema = "public",
     uniqueConstraints = {
-        @UniqueConstraint(name = "KEY_user_PRIMARY", columnNames = { "id" })
+        @UniqueConstraint(name = "user_pkey", columnNames = { "id" })
     }
 )
 public class User implements IUser {
 
-    private static final long serialVersionUID = -298439854;
+    private static final long serialVersionUID = -490109482;
 
-    private Integer       id;
-    private String        name;
-    private Integer       age;
-    private Integer       gender;
-    private LocalDateTime birthday;
+    private Long      id;
+    private String    name;
+    private Integer   age;
+    private String    gender;
+    private LocalDate birthday;
 
     public User() {}
 
@@ -50,11 +50,11 @@ public class User implements IUser {
     }
 
     public User(
-        Integer       id,
-        String        name,
-        Integer       age,
-        Integer       gender,
-        LocalDateTime birthday
+        Long      id,
+        String    name,
+        Integer   age,
+        String    gender,
+        LocalDate birthday
     ) {
         this.id = id;
         this.name = name;
@@ -64,35 +64,35 @@ public class User implements IUser {
     }
 
     /**
-     * Getter for <code>tabuyos.user.id</code>. user id
+     * Getter for <code>public.user.id</code>.
      */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false, precision = 10)
+    @Column(name = "id", nullable = false, precision = 64)
     @Override
-    public Integer getId() {
+    public Long getId() {
         return this.id;
     }
 
     /**
-     * Setter for <code>tabuyos.user.id</code>. user id
+     * Setter for <code>public.user.id</code>.
      */
     @Override
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
     /**
-     * Getter for <code>tabuyos.user.name</code>. user name
+     * Getter for <code>public.user.name</code>.
      */
-    @Column(name = "name", nullable = false, length = 20)
+    @Column(name = "name")
     @Override
     public String getName() {
         return this.name;
     }
 
     /**
-     * Setter for <code>tabuyos.user.name</code>. user name
+     * Setter for <code>public.user.name</code>.
      */
     @Override
     public void setName(String name) {
@@ -100,16 +100,16 @@ public class User implements IUser {
     }
 
     /**
-     * Getter for <code>tabuyos.user.age</code>. user age
+     * Getter for <code>public.user.age</code>.
      */
-    @Column(name = "age", precision = 10)
+    @Column(name = "age", precision = 32)
     @Override
     public Integer getAge() {
         return this.age;
     }
 
     /**
-     * Setter for <code>tabuyos.user.age</code>. user age
+     * Setter for <code>public.user.age</code>.
      */
     @Override
     public void setAge(Integer age) {
@@ -117,36 +117,36 @@ public class User implements IUser {
     }
 
     /**
-     * Getter for <code>tabuyos.user.gender</code>. user gender
+     * Getter for <code>public.user.gender</code>.
      */
-    @Column(name = "gender", precision = 10)
+    @Column(name = "gender")
     @Override
-    public Integer getGender() {
+    public String getGender() {
         return this.gender;
     }
 
     /**
-     * Setter for <code>tabuyos.user.gender</code>. user gender
+     * Setter for <code>public.user.gender</code>.
      */
     @Override
-    public void setGender(Integer gender) {
+    public void setGender(String gender) {
         this.gender = gender;
     }
 
     /**
-     * Getter for <code>tabuyos.user.birthday</code>.
+     * Getter for <code>public.user.birthday</code>.
      */
-    @Column(name = "birthday", nullable = false)
+    @Column(name = "birthday")
     @Override
-    public LocalDateTime getBirthday() {
+    public LocalDate getBirthday() {
         return this.birthday;
     }
 
     /**
-     * Setter for <code>tabuyos.user.birthday</code>.
+     * Setter for <code>public.user.birthday</code>.
      */
     @Override
-    public void setBirthday(LocalDateTime birthday) {
+    public void setBirthday(LocalDate birthday) {
         this.birthday = birthday;
     }
 

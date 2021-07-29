@@ -7,7 +7,7 @@ package com.tabuyos.jooq.examples.generate.code.model.tables.records;
 import com.tabuyos.jooq.examples.generate.code.model.tables.User;
 import com.tabuyos.jooq.examples.generate.code.model.tables.interfaces.IUser;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -33,34 +33,34 @@ import org.jooq.impl.UpdatableRecordImpl;
     name = "user",
     schema = "public",
     uniqueConstraints = {
-        @UniqueConstraint(name = "KEY_user_PRIMARY", columnNames = { "id" })
+        @UniqueConstraint(name = "user_pkey", columnNames = { "id" })
     }
 )
-public class UserRecord extends UpdatableRecordImpl<UserRecord> implements Record5<Integer, String, Integer, Integer, LocalDateTime>, IUser {
+public class UserRecord extends UpdatableRecordImpl<UserRecord> implements Record5<Long, String, Integer, String, LocalDate>, IUser {
 
-    private static final long serialVersionUID = 1313758665;
+    private static final long serialVersionUID = -1305439025;
 
     /**
-     * Setter for <code>tabuyos.user.id</code>. user id
+     * Setter for <code>public.user.id</code>.
      */
     @Override
-    public void setId(Integer value) {
+    public void setId(Long value) {
         set(0, value);
     }
 
     /**
-     * Getter for <code>tabuyos.user.id</code>. user id
+     * Getter for <code>public.user.id</code>.
      */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false, precision = 10)
+    @Column(name = "id", nullable = false, precision = 64)
     @Override
-    public Integer getId() {
-        return (Integer) get(0);
+    public Long getId() {
+        return (Long) get(0);
     }
 
     /**
-     * Setter for <code>tabuyos.user.name</code>. user name
+     * Setter for <code>public.user.name</code>.
      */
     @Override
     public void setName(String value) {
@@ -68,16 +68,16 @@ public class UserRecord extends UpdatableRecordImpl<UserRecord> implements Recor
     }
 
     /**
-     * Getter for <code>tabuyos.user.name</code>. user name
+     * Getter for <code>public.user.name</code>.
      */
-    @Column(name = "name", nullable = false, length = 20)
+    @Column(name = "name")
     @Override
     public String getName() {
         return (String) get(1);
     }
 
     /**
-     * Setter for <code>tabuyos.user.age</code>. user age
+     * Setter for <code>public.user.age</code>.
      */
     @Override
     public void setAge(Integer value) {
@@ -85,46 +85,46 @@ public class UserRecord extends UpdatableRecordImpl<UserRecord> implements Recor
     }
 
     /**
-     * Getter for <code>tabuyos.user.age</code>. user age
+     * Getter for <code>public.user.age</code>.
      */
-    @Column(name = "age", precision = 10)
+    @Column(name = "age", precision = 32)
     @Override
     public Integer getAge() {
         return (Integer) get(2);
     }
 
     /**
-     * Setter for <code>tabuyos.user.gender</code>. user gender
+     * Setter for <code>public.user.gender</code>.
      */
     @Override
-    public void setGender(Integer value) {
+    public void setGender(String value) {
         set(3, value);
     }
 
     /**
-     * Getter for <code>tabuyos.user.gender</code>. user gender
+     * Getter for <code>public.user.gender</code>.
      */
-    @Column(name = "gender", precision = 10)
+    @Column(name = "gender")
     @Override
-    public Integer getGender() {
-        return (Integer) get(3);
+    public String getGender() {
+        return (String) get(3);
     }
 
     /**
-     * Setter for <code>tabuyos.user.birthday</code>.
+     * Setter for <code>public.user.birthday</code>.
      */
     @Override
-    public void setBirthday(LocalDateTime value) {
+    public void setBirthday(LocalDate value) {
         set(4, value);
     }
 
     /**
-     * Getter for <code>tabuyos.user.birthday</code>.
+     * Getter for <code>public.user.birthday</code>.
      */
-    @Column(name = "birthday", nullable = false)
+    @Column(name = "birthday")
     @Override
-    public LocalDateTime getBirthday() {
-        return (LocalDateTime) get(4);
+    public LocalDate getBirthday() {
+        return (LocalDate) get(4);
     }
 
     // -------------------------------------------------------------------------
@@ -132,7 +132,7 @@ public class UserRecord extends UpdatableRecordImpl<UserRecord> implements Recor
     // -------------------------------------------------------------------------
 
     @Override
-    public Record1<Integer> key() {
+    public Record1<Long> key() {
         return (Record1) super.key();
     }
 
@@ -141,17 +141,17 @@ public class UserRecord extends UpdatableRecordImpl<UserRecord> implements Recor
     // -------------------------------------------------------------------------
 
     @Override
-    public Row5<Integer, String, Integer, Integer, LocalDateTime> fieldsRow() {
+    public Row5<Long, String, Integer, String, LocalDate> fieldsRow() {
         return (Row5) super.fieldsRow();
     }
 
     @Override
-    public Row5<Integer, String, Integer, Integer, LocalDateTime> valuesRow() {
+    public Row5<Long, String, Integer, String, LocalDate> valuesRow() {
         return (Row5) super.valuesRow();
     }
 
     @Override
-    public Field<Integer> field1() {
+    public Field<Long> field1() {
         return User.USER.ID;
     }
 
@@ -166,17 +166,17 @@ public class UserRecord extends UpdatableRecordImpl<UserRecord> implements Recor
     }
 
     @Override
-    public Field<Integer> field4() {
+    public Field<String> field4() {
         return User.USER.GENDER;
     }
 
     @Override
-    public Field<LocalDateTime> field5() {
+    public Field<LocalDate> field5() {
         return User.USER.BIRTHDAY;
     }
 
     @Override
-    public Integer component1() {
+    public Long component1() {
         return getId();
     }
 
@@ -191,17 +191,17 @@ public class UserRecord extends UpdatableRecordImpl<UserRecord> implements Recor
     }
 
     @Override
-    public Integer component4() {
+    public String component4() {
         return getGender();
     }
 
     @Override
-    public LocalDateTime component5() {
+    public LocalDate component5() {
         return getBirthday();
     }
 
     @Override
-    public Integer value1() {
+    public Long value1() {
         return getId();
     }
 
@@ -216,17 +216,17 @@ public class UserRecord extends UpdatableRecordImpl<UserRecord> implements Recor
     }
 
     @Override
-    public Integer value4() {
+    public String value4() {
         return getGender();
     }
 
     @Override
-    public LocalDateTime value5() {
+    public LocalDate value5() {
         return getBirthday();
     }
 
     @Override
-    public UserRecord value1(Integer value) {
+    public UserRecord value1(Long value) {
         setId(value);
         return this;
     }
@@ -244,19 +244,19 @@ public class UserRecord extends UpdatableRecordImpl<UserRecord> implements Recor
     }
 
     @Override
-    public UserRecord value4(Integer value) {
+    public UserRecord value4(String value) {
         setGender(value);
         return this;
     }
 
     @Override
-    public UserRecord value5(LocalDateTime value) {
+    public UserRecord value5(LocalDate value) {
         setBirthday(value);
         return this;
     }
 
     @Override
-    public UserRecord values(Integer value1, String value2, Integer value3, Integer value4, LocalDateTime value5) {
+    public UserRecord values(Long value1, String value2, Integer value3, String value4, LocalDate value5) {
         value1(value1);
         value2(value2);
         value3(value3);
@@ -298,7 +298,7 @@ public class UserRecord extends UpdatableRecordImpl<UserRecord> implements Recor
     /**
      * Create a detached, initialised UserRecord
      */
-    public UserRecord(Integer id, String name, Integer age, Integer gender, LocalDateTime birthday) {
+    public UserRecord(Long id, String name, Integer age, String gender, LocalDate birthday) {
         super(User.USER);
 
         setId(id);

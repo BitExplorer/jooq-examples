@@ -4,23 +4,17 @@
 package com.tabuyos.jooq.examples.generate.code.model;
 
 
-import com.tabuyos.jooq.examples.generate.code.model.tables.Depart;
 import com.tabuyos.jooq.examples.generate.code.model.tables.User;
 
 
 /**
- * Convenience access to all tables in tabuyos.
+ * Convenience access to all tables in public.
  */
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Tables {
 
     /**
-     * The table <code>tabuyos.depart</code>.
-     */
-    public static final Depart DEPART = Depart.DEPART;
-
-    /**
-     * The table <code>tabuyos.user</code>.
+     * The table <code>public.user</code>.
      */
     public static final User USER = User.USER;
 }

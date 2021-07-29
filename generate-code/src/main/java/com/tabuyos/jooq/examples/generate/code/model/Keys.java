@@ -4,9 +4,7 @@
 package com.tabuyos.jooq.examples.generate.code.model;
 
 
-import com.tabuyos.jooq.examples.generate.code.model.tables.Depart;
 import com.tabuyos.jooq.examples.generate.code.model.tables.User;
-import com.tabuyos.jooq.examples.generate.code.model.tables.records.DepartRecord;
 import com.tabuyos.jooq.examples.generate.code.model.tables.records.UserRecord;
 
 import org.jooq.TableField;
@@ -17,7 +15,7 @@ import org.jooq.impl.Internal;
 
 /**
  * A class modelling foreign key relationships and constraints of tables in 
- * tabuyos.
+ * public.
  */
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Keys {
@@ -26,6 +24,5 @@ public class Keys {
     // UNIQUE and PRIMARY KEY definitions
     // -------------------------------------------------------------------------
 
-    public static final UniqueKey<DepartRecord> KEY_DEPART_PRIMARY = Internal.createUniqueKey(Depart.DEPART, DSL.name("KEY_depart_PRIMARY"), new TableField[] { Depart.DEPART.ID }, true);
-    public static final UniqueKey<UserRecord> KEY_USER_PRIMARY = Internal.createUniqueKey(User.USER, DSL.name("KEY_user_PRIMARY"), new TableField[] { User.USER.ID }, true);
+    public static final UniqueKey<UserRecord> USER_PKEY = Internal.createUniqueKey(User.USER, DSL.name("user_pkey"), new TableField[] { User.USER.ID }, true);
 }

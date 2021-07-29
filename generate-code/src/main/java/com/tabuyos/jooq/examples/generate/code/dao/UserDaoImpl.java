@@ -24,8 +24,8 @@ public class UserDaoImpl extends UserDao {
   public void tabuyos() {
     System.out.println(create.selectFrom(USER).fetchAny());
     System.out.println(create.selectFrom("user").fetch());
-    System.out.println(create.execute("select * from user;"));
-    System.out.println(create.fetch("select * from user;"));
+    System.out.println(create.execute("select * from public.user;"));
+    System.out.println(create.fetch("select * from public.user;"));
     SelectConditionStep<UserRecord> where = create.selectFrom(USER).where(USER.AGE.eq(25));
     System.out.println(where.fetch());
     System.out.println("---------------------------------");

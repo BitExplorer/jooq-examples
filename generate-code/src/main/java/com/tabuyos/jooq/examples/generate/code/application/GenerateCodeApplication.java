@@ -16,7 +16,7 @@ public class GenerateCodeApplication {
   public static void main(String[] args) throws Exception {
     ConfigurableApplicationContext context = SpringApplication.run(GenerateCodeApplication.class, args);
     System.out.println("==================================================================================================");
-    //GenerateCodeConfig.init();
+    GenerateCodeConfig.init();
     context.getBean(JooqController.class).init();
   }
 }
