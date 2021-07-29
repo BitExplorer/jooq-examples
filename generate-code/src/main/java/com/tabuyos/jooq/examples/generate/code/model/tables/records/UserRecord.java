@@ -31,7 +31,7 @@ import org.jooq.impl.UpdatableRecordImpl;
 @Entity
 @Table(
     name = "user",
-    schema = "tabuyos",
+    schema = "public",
     uniqueConstraints = {
         @UniqueConstraint(name = "KEY_user_PRIMARY", columnNames = { "id" })
     }

@@ -5,7 +5,6 @@ import org.jooq.meta.jaxb.*;
 
 import java.nio.charset.StandardCharsets;
 
-/** @author tabuyos */
 public class GenerateCodeConfig {
 
   public static void init() throws Exception {

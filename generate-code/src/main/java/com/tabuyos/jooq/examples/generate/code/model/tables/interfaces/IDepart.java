@@ -23,7 +23,7 @@ import javax.persistence.UniqueConstraint;
 @Entity
 @Table(
     name = "depart",
-    schema = "tabuyos",
+    schema = "public",
     uniqueConstraints = {
         @UniqueConstraint(name = "KEY_depart_PRIMARY", columnNames = { "id" })
     }
