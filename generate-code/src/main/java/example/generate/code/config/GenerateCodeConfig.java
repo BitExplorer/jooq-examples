@@ -36,7 +36,7 @@ public class GenerateCodeConfig {
                             .withSpringAnnotations(true))
                     .withTarget(
                         new Target()
-                            .withPackageName("com.tabuyos.jooq.examples.generate.code.model")
+                            .withPackageName("example.generate.code.model")
                             .withDirectory("generate-code/src/main/java")
                             .withEncoding(StandardCharsets.UTF_8.name()))));
   }

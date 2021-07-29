@@ -21,7 +21,7 @@ import org.jooq.impl.SQLDataType;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class UuidGenerateV5 extends AbstractRoutine<UUID> {
 
-    private static final long serialVersionUID = 1783851953;
+    private static final long serialVersionUID = 2020695345;
 
     /**
      * The parameter <code>public.uuid_generate_v5.RETURN_VALUE</code>.

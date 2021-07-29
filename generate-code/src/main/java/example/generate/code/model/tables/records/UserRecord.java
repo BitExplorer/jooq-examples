@@ -38,7 +38,7 @@ import org.jooq.impl.UpdatableRecordImpl;
 )
 public class UserRecord extends UpdatableRecordImpl<UserRecord> implements Record5<Long, String, Integer, String, LocalDate>, IUser {
 
-    private static final long serialVersionUID = -1305439025;
+    private static final long serialVersionUID = -764144249;
 
     /**
      * Setter for <code>public.user.id</code>.

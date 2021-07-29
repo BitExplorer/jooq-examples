@@ -31,7 +31,7 @@ import javax.persistence.UniqueConstraint;
 )
 public class User implements IUser {
 
-    private static final long serialVersionUID = -490109482;
+    private static final long serialVersionUID = -1440021610;
 
     private Long      id;
     private String    name;

@@ -20,7 +20,7 @@ import org.jooq.impl.SQLDataType;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class UuidNil extends AbstractRoutine<UUID> {
 
-    private static final long serialVersionUID = 894901749;
+    private static final long serialVersionUID = 127007861;
 
     /**
      * The parameter <code>public.uuid_nil.RETURN_VALUE</code>.
